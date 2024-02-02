@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+// src/App.js
+import React from 'react';
 import './App.css';
+import NameForm from './NameForm';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
+import LanguageSwitcher from './components/LanguageSwitcher'; // Import the LanguageSwitcher component
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { t } = useTranslation(); // Hook for translation
+
+    return (
+        <div className="App">
+            <h1>{t('appTitle')}</h1> {/* Use translation for title */}
+            <LanguageSwitcher /> {/* Include the LanguageSwitcher component */}
+            <NameForm />
+        </div>
+    );
 }
 
 export default App;
